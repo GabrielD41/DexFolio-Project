@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'pokemon';
+  src: url('/src/fonts/pokemon-gb-font/PokemonGb-RAeo.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'nes';
+  src: url('/src/fonts/Pixel_NES/Pixel_NES.otf')
+}
+
+html, body {
+  margin: 0; 
+  height: 100%;
+  width: 100% ;
+  overflow: hidden
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+}
+
+img {
+  width: 1px;
+  height: 1px;
+  animation: myAnim 0.2s ease 0s 1 normal none;
+}
+
+p {
+  font-family: pokemon;
+  color: #ffffff;
+  white-space: pre-line;
+  font-size: 50%;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  animation: cursor .5s step-end infinite alternate;
+}
+
+.screenText {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 305px;
+  height: 80px;
+  animation:
+    typing 4s steps(10);
+}
+
+@keyframes typing {
+  from { height: 0 }
+}
+
+@keyframes cursor {
+  50% {border: none}
+}
+
+@keyframes myAnim {
+  0% {border-radius: 5px; }
+  100% {border-radius: 0px;}
+}
+
+#frente{
+  z-index: 1;
+  position: relative;
+  display: flex;
+  margin: 0.5em;
+}
+#language{
+  width: 55px;
+  height: 55px;
+}
+
+#tutorial{
+  width: 55px;
+  height: 55px;
+}
+
+#sound{
+  width: 55px;
+  height: 55px;
+}
