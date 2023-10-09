@@ -3,11 +3,6 @@
   src: url('/src/fonts/pokemon-gb-font/PokemonGb-RAeo.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'nes';
-  src: url('/src/fonts/Pixel_NES/Pixel_NES.otf')
-}
-
 html, body {
   margin: 0; 
   height: 100%;

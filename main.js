@@ -965,7 +965,7 @@ function init() {
             }else if(state == 'pj011'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
-                imgElement.src = '/src/img/screen/loja.avif'
+                imgElement.src = '/src/img/screen/loja.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: Loja HouseTec\r\n\r\n'
                 screenElement.textContent += 'Tecnologias: HTML,CSS,JavaScript,JSON \r\n\r\n'
@@ -1447,7 +1447,7 @@ function init() {
             }else if(state == 'pj011'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
-                imgElement.src = '/src/img/screen/loja.avif'
+                imgElement.src = '/src/img/screen/loja.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Project: HouseTec Store\r\n\r\n'
                 screenElement.textContent += 'Technologies: HTML,CSS,JavaScript,JSON \r\n\r\n'
