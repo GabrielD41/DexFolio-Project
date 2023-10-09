@@ -474,7 +474,7 @@ function init() {
     //Modelo
     const loaderG = new GLTFLoader();
     const loaderT = new THREE.TextureLoader();
-    loaderG.load('/src/models/FinalPokedex3DModel.gltf', function (gltf) {
+    loaderG.load('/src/models/Pokedex3DModel.gltf', function (gltf) {
         pokedex = gltf
         //Transformações no modelo
         pokedex.scene.rotation.x = Math.PI / 2;
