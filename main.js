@@ -456,7 +456,7 @@ function init() {
 
     document.getElementById("tutorial").onclick = function() {tutorial()};
     function tutorial(){
-        window.open("/public/tutorial.html");
+        window.open("tutorial.html");
     }
 
     document.getElementById("sound").onclick = function() {soundMute()};
