@@ -51,13 +51,11 @@ loadingManager.onStart = function(url, item, total){
 }
 
 loadingManager.onProgress = function(url, loaded, total){
-    console.log(url)
 }
 
 loadingManager.onLoad = function(){
-    console.log('finished')
-    theme.play();
-    document.getElementById("buttonPlay").style.visibility = "visible";
+    theme.play()
+    document.getElementById("buttonPlay").style.visibility = "hidden";
 }
 
 loadingManager.onError = function(url){
