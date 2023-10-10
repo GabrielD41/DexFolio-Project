@@ -64,8 +64,8 @@ animate();
 
 function init() {
     loadingManager.onLoad = function(){
-        theme.play()
         document.getElementById("buttonPlay").style.visibility = "visible";
+        theme.play();
     }
 
     container = document.createElement( 'div' );
