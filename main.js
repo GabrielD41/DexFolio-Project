@@ -65,7 +65,6 @@ animate();
 function init() {
     loadingManager.onLoad = function(){
         document.getElementById("buttonPlay").style.visibility = "visible";
-        theme.play();
     }
 
     container = document.createElement( 'div' );
@@ -147,7 +146,7 @@ function init() {
     audioLoader.load('/src/sounds/abertura.ogg' , function( buffer ){
         theme.setBuffer( buffer );
 	    theme.setLoop( true );
-	    theme.setVolume( 0.10 );
+	    theme.setVolume( 0.05 );
     })
     
 
@@ -479,9 +478,14 @@ function init() {
         }
     }
 
-    document.getElementById("tutorial").onclick = function() {tutorial()};
-    function tutorial(){
-        window.open("tutorial.html");
+    document.getElementById("tutorial").onclick = function() {openTutorial()};
+    function openTutorial(){
+        document.getElementById("tutorialDiv").style.visibility = "visible";
+    }
+
+    document.getElementById("closeButton").onclick = function() {closeTutorial()};
+    function closeTutorial(){
+        document.getElementById("tutorialDiv").style.visibility = "hidden";
     }
 
     document.getElementById("sound").onclick = function() {soundMute()};
@@ -498,13 +502,14 @@ function init() {
         
     }
 
-    document.getElementById("buttonPlay").onclick = function() {tutorial()};
-    function tutorial(){
+    document.getElementById("buttonPlay").onclick = function() {buttonPlay()};
+    function buttonPlay(){
         document.getElementById("mainScreen").style.visibility = "hidden";
         document.getElementById("frente1").style.visibility = "visible";
         document.getElementById("frente2").style.visibility = "visible";
         document.getElementById("frente3").style.visibility = "visible";
         document.getElementById("buttonPlay").style.visibility = "hidden";
+        theme.play();
         pokedex.scene.visible = true;
     }
 
@@ -1797,8 +1802,7 @@ function init() {
                 if(screenFrame.visible == false){
                     onSound.stop();
                     onSound.play();
-                    controls.maxAzimuthAngle = Math.PI/4;
-                    controls.minAzimuthAngle = Math.PI/-4;
+                    controls.enableRotate  = false;
                     camera.rotation.set( 0, 0, 0 );
                     camera.position.set( 0, 0, 6 );
                     tela.material = material1;
@@ -2339,6 +2343,8 @@ function dexOpen(){
     camera.position.set( 0, 0, 6 );
     controls.maxDistance = 7;
     controls.minDistance = 5;
+    controls.maxAzimuthAngle = Math.PI/4;
+    controls.minAzimuthAngle = Math.PI/-4;
 }
 
 function update () {

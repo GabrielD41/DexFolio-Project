@@ -7,7 +7,7 @@ html, body {
   margin: 0; 
   height: 100%;
   width: 100% ;
-  overflow: hidden
+  overflow: hidden;
 }
 
 canvas {
@@ -92,25 +92,65 @@ p {
   top: 0;
   left: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   //visibility: hidden;
 }
 #mainScreen img{
   height: 35%;
-  display:flex;
-  margin-left: 27%;
-  margin-top: 8%;
 }
 #buttonPlay{
   font-family: pokemon;
   height: 3em;
   border: 1px solid;
   border-radius: 0.5em;
-  margin-top: 2em;
-  margin-left: 47.5%;
   visibility: hidden;
 }
 
 figure button:hover{
   background-color: white; /* change to your desired color */
+  color: 0xcFFFFFF; /* change to your desired color */
+}
+
+#tutorialDiv{
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F0F0;
+  visibility: hidden;
+}
+
+#tutorialDiv img{
+  width: 538px;
+  height: 650px;
+}
+
+#tutorialDiv figcaption, #tutorialfig h1{
+  text-align: center;
+}
+
+#tutorialButton{
+  width: 100px;
+  height: 40px;
+}
+
+#closeButton{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+}
+
+#closeButton:hover{
+  background-color: #d11a2a; /* change to your desired color */
   color: 0xcFFFFFF; /* change to your desired color */
 }
