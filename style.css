@@ -17,7 +17,7 @@ canvas {
 
 }
 
-img {
+.screenImage {
   width: 1px;
   height: 1px;
   animation: myAnim 0.2s ease 0s 1 normal none;
@@ -61,12 +61,14 @@ p {
   100% {border-radius: 0px;}
 }
 
-#frente{
+#frente1,#frente2,#frente3{
   z-index: 1;
   position: relative;
   display: flex;
   margin: 0.5em;
+  visibility: hidden;
 }
+
 #language{
   width: 55px;
   height: 55px;
@@ -80,4 +82,35 @@ p {
 #sound{
   width: 55px;
   height: 55px;
+}
+
+#mainScreen{
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  //visibility: hidden;
+}
+#mainScreen img{
+  height: 35%;
+  display:flex;
+  margin-left: 27%;
+  margin-top: 8%;
+}
+#buttonPlay{
+  font-family: pokemon;
+  height: 3em;
+  border: 1px solid;
+  border-radius: 0.5em;
+  margin-top: 2em;
+  margin-left: 47.5%;
+  visibility: hidden;
+}
+
+figure button:hover{
+  background-color: white; /* change to your desired color */
+  color: 0xcFFFFFF; /* change to your desired color */
 }

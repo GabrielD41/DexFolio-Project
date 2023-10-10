@@ -31,7 +31,7 @@ let mesh01, mesh02, mesh03, mesh04, mesh05;
 let mesh11, mesh12, mesh13, mesh14, mesh15;
 let lsMesh, pjMesh, contactMesh, linkedinMesh;
 let lang = 'br';
-let tuto = false;
+let theme;
 let sound = true;
 
 
@@ -43,7 +43,26 @@ const clock = new THREE.Clock();
 const listener = new THREE.AudioListener();
 const labelRenderer = new CSS3DRenderer();
 const delay = ms => new Promise(res => setTimeout(res, ms));
+const loadingManager = new THREE.LoadingManager();
+const loaderG = new GLTFLoader(loadingManager);
 
+loadingManager.onStart = function(url, item, total){
+
+}
+
+loadingManager.onProgress = function(url, loaded, total){
+    console.log(url)
+}
+
+loadingManager.onLoad = function(){
+    console.log('finished')
+    theme.play();
+    document.getElementById("buttonPlay").style.visibility = "visible";
+}
+
+loadingManager.onError = function(url){
+    console.error('erro' + url)
+}
 
 document.addEventListener("keydown", onDocumentKeyDown, false);
 
@@ -77,6 +96,11 @@ function init() {
     controls = new OrbitControls( camera, renderer.domElement );
     controls.enablePan = false;
     camera.add(listener)
+
+    controls.maxDistance = 9;
+    controls.minDistance = 6;
+    controls.maxPolarAngle = Math.PI/1.5;
+    controls.minPolarAngle = Math.PI/4;
     
     //Luz e sombra - inicio
     scene.add( new THREE.AmbientLight( 0xaaaaaa, 0.65 ) );
@@ -88,7 +112,6 @@ function init() {
     light.shadow.mapSize.height = 1024;
 
     const d = 10;
-
     light.shadow.camera.left = - d;
     light.shadow.camera.right = d;
     light.shadow.camera.top = d;
@@ -103,12 +126,11 @@ function init() {
     labelRenderer.domElement.style.pointerEvents = 'none';
     document.body.appendChild( labelRenderer.domElement);
 
-    //Luz e sombra - fim
-
-    //Click Sound Effect
+    //Click Sound Effect and Music Theme
     const clickSound = new THREE.Audio(listener);
     const onSound = new THREE.Audio(listener);
     const offSound = new THREE.Audio(listener);
+    theme = new THREE.Audio(listener);
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load( '/src/sounds/clickSound.ogg', function( buffer ) {
 	    clickSound.setBuffer( buffer );
@@ -125,6 +147,12 @@ function init() {
 	    offSound.setLoop( false );
 	    offSound.setVolume( 0.25 );
     })
+    audioLoader.load('/src/sounds/abertura.ogg' , function( buffer ){
+        theme.setBuffer( buffer );
+	    theme.setLoop( true );
+	    theme.setVolume( 0.10 );
+    })
+    
 
     //IMG - Ls(0) Pg(1)    
     const html = new THREE.TextureLoader().load('/src/img/icons/html.png'                    );
@@ -463,16 +491,28 @@ function init() {
     function soundMute(){
         if (sound == true) {
             document.getElementById("sound").src = '/src/img/icons/off.png'
+            theme.stop();
             sound = false;
         }else{
             document.getElementById("sound").src = '/src/img/icons/on.png'
+            theme.play();
             sound = true;
         }
         
     }
 
+    document.getElementById("buttonPlay").onclick = function() {tutorial()};
+    function tutorial(){
+        document.getElementById("mainScreen").style.visibility = "hidden";
+        document.getElementById("frente1").style.visibility = "visible";
+        document.getElementById("frente2").style.visibility = "visible";
+        document.getElementById("frente3").style.visibility = "visible";
+        theme.play();
+        pokedex.scene.visible = true;
+    }
+
     //Modelo
-    const loaderG = new GLTFLoader();
+    
     const loaderT = new THREE.TextureLoader();
     loaderG.load('/src/models/Pokedex3DModel.gltf', function (gltf) {
         pokedex = gltf
@@ -483,6 +523,7 @@ function init() {
         pokedex.scene.scale.z = 0.2; //pokedex.scene.getObjectByName('Joystick_Cima001').scale.x = 2;
         //Adiciona modelo na cena
         scene.add(pokedex.scene);
+        pokedex.scene.visible = false;
         console.log(pokedex.scene); //linha de produção (apagar)
 
         tela = pokedex.scene.getObjectByName('Tela003');
@@ -537,7 +578,7 @@ function init() {
         dir.loop = THREE.LoopOnce;
 
         //PressButton
-        pressClip = THREE.AnimationClip.findByName(clips, 'Select/Pause_Button.006Action');
+        pressClip = THREE.AnimationClip.findByName(clips, 'Select/Pause_Button.006Action.002');
         sl1 = mixer.clipAction(pressClip)
         sl1.loop = THREE.LoopOnce;
 
@@ -675,6 +716,7 @@ function init() {
 
     let imgElement = document.createElement('img');
     imgElement.src = '/src/img/euimgzap.jpg'
+    imgElement.className = 'screenImage'
     const screenFrame = new CSS3DObject(imgElement);
     scene.add(screenFrame);
     screenFrame.position.x = -1.32;
@@ -1727,6 +1769,7 @@ function init() {
                 && selectedObject.name != 'pjMesh'
                 && selectedObject.name != 'contactMesh'
                 && selectedObject.name != 'linkedinMesh'
+                && selectedObject.name != 'som'
             ){
                 addSelectedObject( selectedObject );
                 outlinePass.selectedObjects = selectedObjects;
@@ -1757,7 +1800,8 @@ function init() {
                 if(screenFrame.visible == false){
                     onSound.stop();
                     onSound.play();
-                    controls.enabled = false
+                    controls.maxAzimuthAngle = Math.PI/4;
+                    controls.minAzimuthAngle = Math.PI/-4;
                     camera.rotation.set( 0, 0, 0 );
                     camera.position.set( 0, 0, 6 );
                     tela.material = material1;
@@ -1788,6 +1832,10 @@ function init() {
                     textFrameContinue('none');
                     callButtons(info,page);
                 }
+            }
+
+            if(x == 'fechadura001'){
+                dexOpen();
             }
             
             if(on == true){
@@ -1834,7 +1882,7 @@ function init() {
                     }else{
                         fun = 0;
                     }
-                }else if(x == 'SelectPause_Button006'){
+                }else if(x == 'SelectPause_Button011'){
                     pressSound()
                     sl1.reset();
                     sl1.play();
@@ -2278,15 +2326,22 @@ function animationFinished(){
 
 function onDocumentKeyDown(event){
     var keyCode = event.which;
-    ab = true
+    
     if(keyCode == 32){
-        openPokedex.play()
-        pokedex.scene.rotation.set(Math.PI / 2, 0, 0);
-        pokedex.scene.position.set( -1.25, -0.15, 0);
-        camera.rotation.set( 0, 0, 0 );
-        camera.position.set( 0, 0, 6 );
+        dexOpen();
     }
     
+}
+
+function dexOpen(){
+    ab = true;
+    openPokedex.play()
+    pokedex.scene.rotation.set(Math.PI / 2, 0, 0);
+    pokedex.scene.position.set( -1.25, -0.15, 0);
+    camera.rotation.set( 0, 0, 0 );
+    camera.position.set( 0, 0, 6 );
+    controls.maxDistance = 7;
+    controls.minDistance = 5;
 }
 
 function update () {
@@ -2304,8 +2359,9 @@ function animate() {
     if(mixer && ab == true){
         update();
     }else if(mixer && ab == false){
-        
+
     }
+    
     controls.update();
     composer.render();
     labelRenderer.render(scene, camera);
