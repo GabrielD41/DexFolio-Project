@@ -55,7 +55,7 @@ loadingManager.onProgress = function(url, loaded, total){
 
 loadingManager.onLoad = function(){
     theme.play()
-    document.getElementById("buttonPlay").style.visibility = "hidden";
+    document.getElementById("buttonPlay").style.visibility = "visible";
 }
 
 loadingManager.onError = function(url){
@@ -505,7 +505,7 @@ function init() {
         document.getElementById("frente1").style.visibility = "visible";
         document.getElementById("frente2").style.visibility = "visible";
         document.getElementById("frente3").style.visibility = "visible";
-        theme.play();
+        document.getElementById("buttonPlay").style.visibility = "hidden";
         pokedex.scene.visible = true;
     }
 
