@@ -53,11 +53,6 @@ loadingManager.onStart = function(url, item, total){
 loadingManager.onProgress = function(url, loaded, total){
 }
 
-loadingManager.onLoad = function(){
-    theme.play()
-    document.getElementById("buttonPlay").style.visibility = "visible";
-}
-
 loadingManager.onError = function(url){
     console.error('erro' + url)
 }
@@ -68,6 +63,10 @@ init();
 animate();
 
 function init() {
+    loadingManager.onLoad = function(){
+        theme.play()
+        document.getElementById("buttonPlay").style.visibility = "visible";
+    }
 
     container = document.createElement( 'div' );
     document.body.appendChild( container );
