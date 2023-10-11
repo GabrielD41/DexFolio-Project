@@ -879,9 +879,9 @@ function init() {
             }else if(state == 'omg'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
-                imgElement.src = '/src/img/screen/me.jpg'
+                imgElement.src = '/src/img/screen/nevergona.gif'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'IT\'S ME.'
+                screenElement.textContent = 'Rick Rolled'
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'css'){
@@ -1361,9 +1361,9 @@ function init() {
             }else if(state == 'omg'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
-                imgElement.src = '/src/img/screen/me.jpg'
+                imgElement.src = '/src/img/screen/nevergona.gif'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'IT\'S ME.'
+                screenElement.textContent = 'Rick Rolled'
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'css'){
