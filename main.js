@@ -23,7 +23,7 @@ let pokedex;
 let ab, on = false;
 let arrowDown;
 let state, link = '';
-let page = 1;
+let page, tutorialPage = 1;
 let info = 'ls';
 let fun = 0;
 let material1, tela, telaM;
@@ -176,11 +176,11 @@ function init() {
     const ls152 = new THREE.TextureLoader().load('/src/img/icons/');
     
     //IMG - Pj(0) Pg(1)    
-    const pj011 = new THREE.TextureLoader().load('/src/img/icons/shop.png');
-    const pj021 = new THREE.TextureLoader().load('/src/img/icons/report.png');
+    const pj011 = new THREE.TextureLoader().load('/src/img/icons/shop.png'       );
+    const pj021 = new THREE.TextureLoader().load('/src/img/icons/report.png'     );
     const pj031 = new THREE.TextureLoader().load('/src/img/icons/calculadora.png');
-    const pj041 = new THREE.TextureLoader().load('/src/img/icons/');
-    const pj051 = new THREE.TextureLoader().load('/src/img/icons/');
+    const pj041 = new THREE.TextureLoader().load('/src/img/icons/'               );
+    const pj051 = new THREE.TextureLoader().load('/src/img/icons/'               );
     //IMG - Pj(1) Pg(1)    
     const pj111 = new THREE.TextureLoader().load('/src/img/icons/');
     const pj121 = new THREE.TextureLoader().load('/src/img/icons/');
@@ -200,10 +200,10 @@ function init() {
     const pj142 = new THREE.TextureLoader().load('/src/img/icons/');
     const pj152 = new THREE.TextureLoader().load('/src/img/icons/');        
     //white Buttons
-    const lsButton = new THREE.TextureLoader().load('/src/img/icons/learning.png'      );
-    const pjButton = new THREE.TextureLoader().load('/src/img/icons/portfolio.png'     );
+    const lsButton = new THREE.TextureLoader().load('/src/img/icons/learning.png'           );
+    const pjButton = new THREE.TextureLoader().load('/src/img/icons/portfolio.png'          );
 
-    const contactButton = new THREE.TextureLoader().load('/src/img/icons/zap.png'      );
+    const contactButton = new THREE.TextureLoader().load('/src/img/icons/zap.png'           );
     const linkedinButton = new THREE.TextureLoader().load('/src/img/icons/linkedin.png'     );
 
     const planeGeometry = new THREE.PlaneGeometry();
@@ -457,6 +457,7 @@ function init() {
     function language(){
         if (lang != 'br') {
             lang = 'br';
+            document.getElementById("language").src = '/src/img/icons/brasil.png'
             state = 'redo'
             if(on == true){
                 state = 'redo'
@@ -467,7 +468,7 @@ function init() {
             }
         }else{
             lang = 'en';
-            
+            document.getElementById("language").src = '/src/img/icons/usa.png'
             if(on == true){
                 state = 'redo'
                 textFrameContinue(state)
@@ -488,6 +489,102 @@ function init() {
         document.getElementById("tutorialDiv").style.visibility = "hidden";
     }
 
+    document.getElementById("nextButton").onclick = function() {nextTutorial()};
+    function nextTutorial(){
+        console.log(tutorialPage);
+        if (tutorialPage < 9) {
+            tutorialPage += 1;
+            updateTutorial();
+        }
+    }
+
+    document.getElementById("backButton").onclick = function() {backTutorial()};
+    function backTutorial(){
+        if (tutorialPage > 1) {
+            tutorialPage -= 1;
+            updateTutorial();
+        }
+    }
+
+    function updateTutorial(){
+        //document.getElementById("tutorialFigCaption")
+        if (tutorialPage == 1) {
+            document.getElementById("ptTitle").textContent = 'Como Abrir'
+            document.getElementById("enTitle").textContent = 'How to open'
+
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/1.png'
+
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\nAperte a tecla espaço ou clique no botão amarelo para abrir a pokedex.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            'Press the space key or click on the yellow button to open the pokedex.'
+        }else if (tutorialPage == 2) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/3.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n1 - Botão de Ligar / Desligar.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '1 - Power On / Off Button.'
+        }else if (tutorialPage == 3) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/3.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n2 - D-Pad: Seta para baixo avança para próximo texto.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '2 - D-Pad: Down arrow advances to next text.'
+        }else if (tutorialPage == 4) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/3.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n3 - Select (Vermelho) Retorna para inicio, Pause (Azul) Abre link do projeto.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '3 - Select (Red) Returns to beginning, Pause (Blue) Opens project link.'
+        }else if (tutorialPage == 5) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/4.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n4 - Tela onde o texto é exibido.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '4 - Screen where the text is displayed.'
+        }else if (tutorialPage == 6) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/5.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n5 - Teclado azul para exibir o conteúdo desejado.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '5 - Blue keyboard to display the desired content.'
+        }else if (tutorialPage == 7) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/6.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n6 - Alterna entre as páginas 1 e 2 do teclado.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '6 - Toggles between page 1 and 2 of the keyboard.'
+        }else if (tutorialPage == 8) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/6.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n7 - Alterna entre as páginas de projetos e conhecimentos do teclado.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '7 - Toggles between project and knowledge pages of the keyboard.'
+        }else if (tutorialPage == 9) {
+            document.getElementById("ptTitle").textContent = 'Controles'
+            document.getElementById("enTitle").textContent = 'Controls'
+            document.getElementById("tutorialImg").src = '/src/img/tutorial/7.png'
+            document.getElementById("tutorialFigCaption").textContent = 
+            '\r\n8 - Links de contato.\r\n\r\n'
+            document.getElementById("tutorialFigCaption").textContent += 
+            '8 - Contact links.'
+        }
+    } 
+    
     document.getElementById("sound").onclick = function() {soundMute()};
     function soundMute(){
         if (sound == true) {
@@ -841,7 +938,7 @@ function init() {
                 screenElement.textContent = '------------ Experiencia ------------\r\n\r\n'
                 screenElement.textContent += 'Cinemark Brasil - Freelance\r\n\r\n'
                 screenElement.textContent += ' Funçao: PAC\r\n'
-                screenElement.textContent += ' Abril de 2023 / o momento - 6 meses\r\n'
+                screenElement.textContent += ' Abril de 2023 / o momento - 7 meses\r\n'
                 screenElement.textContent += ' Sao Paulo, Brasil\r\n\r\n'
                 screenElement.textContent += 'Competências: Vendas,Persuasao,Inglês\r\n'
                 screenElement.textContent += ' Comunicaçao,Trabalho em equipe.\r\n'
@@ -1043,7 +1140,7 @@ function init() {
                 screenElement.textContent += 'Sobre: Calculadora online e interativa\r\n'
                 screenElement.textContent += '      feita para ser hospedada na web\r\n'
                 screenElement.textContent += '      com seu design feito por CSS\r\n'
-                screenElement.textContent += '      e funcinalidade por JavaScript\r\n'
+                screenElement.textContent += '      e funcionalidade por JavaScript\r\n'
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'null'){ //pj041
@@ -1233,13 +1330,13 @@ function init() {
             if (state == 'firstText') {
                 textFrame.visible = false;
                 arrowDown.visible = false;
-                screenElement.textContent = '-------------- Formaçao --------------\r\n\r\n'
+                screenElement.textContent = '-------- Academic Background --------\r\n\r\n'
                 screenElement.textContent += 'UNICSUL - Universidade Cruzeiro do Sul\r\n\r\n'
-                screenElement.textContent += 'Bacharelado, Ciencias da computaçao\r\n'
-                screenElement.textContent += '          fev de 2021 - dez de 2024\r\n\r\n'
-                screenElement.textContent += 'Competências: Resoluçao de problemas,\r\n'
-                screenElement.textContent += ' Gestao de projetos,Trabalho em equipe\r\n'
-                screenElement.textContent += ' Inglês,Capacidade de organizaçao.\r\n'
+                screenElement.textContent += 'Bachelor degree, Computer science\r\n'
+                screenElement.textContent += '          Feb 2021 - Dec 2024\r\n\r\n'
+                screenElement.textContent += 'Skills: Problem solving,\r\n'
+                screenElement.textContent += ' Project management,Team work\r\n'
+                screenElement.textContent += ' English,Organization capacity.\r\n'
                 await delay(50);
                 textFrame.visible = true;
                 await delay(5000);
@@ -1811,6 +1908,7 @@ function init() {
                     state = 'firstText';
                     textFrame.visible = true;
                     on = true;
+                    page = 1;
                     iconsHideShow(on);
                     await delay(5000);
                     const element = document.getElementById('screenText');
@@ -1823,7 +1921,7 @@ function init() {
                     screenFrame.visible = false;
                     tela.material = telaM;
                     textFrame.visible = false;
-                    controls.enabled = true;
+                    controls.enableRotate = true;
                     arrowDown.visible = false;
                     link = '';
                     page = 1;
@@ -1844,6 +1942,15 @@ function init() {
                     pressSound()
                     cima.reset();
                     cima.play();
+                    if (state == 'secondText') {
+                        state = 'redo';
+                        textFrameContinue(state);
+                        state = 'firstText';
+                    }else if (state == 'end') {
+                        state = 'firstText';
+                        textFrameContinue(state);
+                        state = 'secondText';
+                    }
                     if(fun == 0 || fun == 1){
                         fun++
                     }else{
@@ -1858,7 +1965,7 @@ function init() {
                         state = 'secondText';
                     }else if (state == 'secondText') {
                         textFrameContinue(state);
-                        state = '';
+                        state = 'end';
                     }
                     if(fun == 2 || fun == 3){
                         fun++
@@ -2364,7 +2471,6 @@ function animate() {
     }else if(mixer && ab == false){
 
     }
-    
     controls.update();
     composer.render();
     labelRenderer.render(scene, camera);
