@@ -491,7 +491,6 @@ function init() {
 
     document.getElementById("nextButton").onclick = function() {nextTutorial()};
     function nextTutorial(){
-        console.log(tutorialPage);
         if (tutorialPage < 9) {
             tutorialPage += 1;
             updateTutorial();
@@ -623,11 +622,10 @@ function init() {
         //Adiciona modelo na cena
         scene.add(pokedex.scene);
         pokedex.scene.visible = false;
-        console.log(pokedex.scene); //linha de produção (apagar)
 
         tela = pokedex.scene.getObjectByName('Tela003');
         telaM = tela.material
-        console.log(tela)
+
         //Animação do modelo
         mixer = new THREE.AnimationMixer(pokedex.scene);
         mixer.addEventListener('finished', animationFinished);
@@ -2014,7 +2012,6 @@ function init() {
                         fun = 0;
                         if(link != ''){
                             window.open(link);
-                            console.log('abrido' + link)
                         }
                     }
                 
@@ -2405,7 +2402,6 @@ function init() {
         if (intersectsC.length > 0) {
             var x = intersectsC[0].object.name;
             onClickButon(x);
-            console.log('Intersection:', intersectsC[0].object);
         }
       
       }
