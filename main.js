@@ -880,7 +880,7 @@ function init() {
                 textFrame.visible = false;
                 arrowDown.visible = false;
                 imgElement.src = '/src/img/screen/nevergona.gif'
-                screenFrame.scale.set(1,1,1)
+                screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Rick Rolled'
                 await delay(50);
                 textFrame.visible = true;
@@ -1362,7 +1362,7 @@ function init() {
                 textFrame.visible = false;
                 arrowDown.visible = false;
                 imgElement.src = '/src/img/screen/nevergona.gif'
-                screenFrame.scale.set(1,1,1)
+                screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Rick Rolled'
                 await delay(50);
                 textFrame.visible = true;
