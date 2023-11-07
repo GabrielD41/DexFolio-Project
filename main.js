@@ -860,6 +860,7 @@ function init() {
                 await delay(5000);
                 arrowDown.visible = true;
             }else if (state == 'none') {
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Nome: Gabriel Dias\r\n\r\n'
@@ -869,6 +870,7 @@ function init() {
             }else if(state == 'html'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Linguagem: HTML\r\n\r\n'
@@ -879,6 +881,7 @@ function init() {
             }else if(state == 'omg'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/nevergona.gif'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Rick Rolled'
@@ -887,6 +890,7 @@ function init() {
             }else if(state == 'css'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Linguagem: CSS\r\n\r\n'
@@ -897,6 +901,7 @@ function init() {
             }else if(state == 'js'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Linguagem: JavaScript\r\n\r\n'
@@ -909,6 +914,7 @@ function init() {
             }else if(state == 'node'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Node.js\r\n\r\n'
@@ -920,6 +926,7 @@ function init() {
             }else if(state == 'react'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Biblioteca: React\r\n\r\n'
@@ -931,6 +938,7 @@ function init() {
             }else if(state == 'secondText'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = '------------ Experiencia ------------\r\n\r\n'
@@ -945,6 +953,7 @@ function init() {
             }else if(state == 'ls111'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Linguagem: Python\r\n\r\n'
@@ -956,6 +965,7 @@ function init() {
             }else if(state == 'ls121'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Linguagem: Java\r\n\r\n'
@@ -968,6 +978,7 @@ function init() {
             }else if(state == 'ls131'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Pacote Adobe\r\n\r\n'
@@ -979,6 +990,7 @@ function init() {
             }else if(state == 'ls141'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: SAP\r\n\r\n'
@@ -993,6 +1005,7 @@ function init() {
             }else if(state == 'ls151'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Blender\r\n\r\n'
@@ -1004,6 +1017,7 @@ function init() {
             }else if(state == 'null'){ //ls012
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls012 \r\n\r\n'
@@ -1014,6 +1028,7 @@ function init() {
             }else if(state == 'null'){ //ls022
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls022\r\n\r\n'
@@ -1024,6 +1039,7 @@ function init() {
             }else if(state == 'null'){ //ls032
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls032\r\n\r\n'
@@ -1034,6 +1050,7 @@ function init() {
             }else if(state == 'null'){ //ls042
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls042\r\n\r\n'
@@ -1044,6 +1061,7 @@ function init() {
             }else if(state == 'null'){ //ls052
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls052\r\n\r\n'
@@ -1054,6 +1072,7 @@ function init() {
             }else if(state == 'null'){ //ls112
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls112\r\n\r\n'
@@ -1064,6 +1083,7 @@ function init() {
             }else if(state == 'null'){ //ls122
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls122\r\n\r\n'
@@ -1074,6 +1094,7 @@ function init() {
             }else if(state == 'null'){ //ls132
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls132\r\n\r\n'
@@ -1084,6 +1105,7 @@ function init() {
             }else if(state == 'null'){ //ls142
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls142\r\n\r\n'
@@ -1094,6 +1116,7 @@ function init() {
             }else if(state == 'null'){ //ls152
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls152\r\n\r\n'
@@ -1104,6 +1127,7 @@ function init() {
             }else if(state == 'pj011'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/loja.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: Loja HouseTec\r\n\r\n'
@@ -1118,6 +1142,7 @@ function init() {
             }else if(state == 'pj021'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/tabelafii.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: Tabela de Investimentos\r\n\r\n'
@@ -1131,6 +1156,7 @@ function init() {
             }else if(state == 'pj031'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/calculadora.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: Calculadora Web\r\n\r\n'
@@ -1144,6 +1170,7 @@ function init() {
             }else if(state == 'null'){ //pj041
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj041\r\n\r\n'
@@ -1154,6 +1181,7 @@ function init() {
             }else if(state == 'null'){ //pj051
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj051\r\n\r\n'
@@ -1164,6 +1192,7 @@ function init() {
             }else if(state == 'null'){ //pj111
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj111\r\n\r\n'
@@ -1174,6 +1203,7 @@ function init() {
             }else if(state == 'null'){ //pj121
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj121\r\n\r\n'
@@ -1184,6 +1214,7 @@ function init() {
             }else if(state == 'null'){ //pj131
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj131\r\n\r\n'
@@ -1194,6 +1225,7 @@ function init() {
             }else if(state == 'null'){ //pj141
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj141\r\n\r\n'
@@ -1204,6 +1236,7 @@ function init() {
             }else if(state == 'null'){ //pj151
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj151\r\n\r\n'
@@ -1214,6 +1247,7 @@ function init() {
             }else if(state == 'null'){ //pj012
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj012\r\n\r\n'
@@ -1224,6 +1258,7 @@ function init() {
             }else if(state == 'null'){ //pj022
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj022\r\n\r\n'
@@ -1234,6 +1269,7 @@ function init() {
             }else if(state == 'null'){ //pj032
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj032\r\n\r\n'
@@ -1244,6 +1280,7 @@ function init() {
             }else if(state == 'null'){ //pj042
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj042\r\n\r\n'
@@ -1254,6 +1291,7 @@ function init() {
             }else if(state == 'null'){ //pj052
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj052\r\n\r\n'
@@ -1264,6 +1302,7 @@ function init() {
             }else if(state == 'null'){ //pj112
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj112\r\n\r\n'
@@ -1274,6 +1313,7 @@ function init() {
             }else if(state == 'null'){ //pj122
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj122\r\n\r\n'
@@ -1284,6 +1324,7 @@ function init() {
             }else if(state == 'null'){ //pj132
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/'
                 screenElement.textContent = 'Projeto: pj132\r\n\r\n'
                 screenElement.textContent += 'Nível: TEMPLATE \r\n\r\n'
@@ -1293,6 +1334,7 @@ function init() {
             }else if(state == 'null'){ //pj142
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj142\r\n\r\n'
@@ -1303,6 +1345,7 @@ function init() {
             }else if(state == 'null'){ //pj152
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj152\r\n\r\n'
@@ -1313,6 +1356,7 @@ function init() {
             }else if (state == 'redo') {
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Nome: Gabriel Dias\r\n\r\n'
@@ -1340,6 +1384,7 @@ function init() {
                 await delay(5000);
                 arrowDown.visible = true;
             }else if (state == 'none') {
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Name: Gabriel Dias\r\n\r\n'
@@ -1351,6 +1396,7 @@ function init() {
             }else if(state == 'html'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Language: HTML\r\n\r\n'
@@ -1361,6 +1407,7 @@ function init() {
             }else if(state == 'omg'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/nevergona.gif'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Rick Rolled'
@@ -1369,6 +1416,7 @@ function init() {
             }else if(state == 'css'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Language: CSS\r\n\r\n'
@@ -1379,6 +1427,7 @@ function init() {
             }else if(state == 'js'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Language: JavaScript\r\n\r\n'
@@ -1391,6 +1440,7 @@ function init() {
             }else if(state == 'node'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Node.js\r\n\r\n'
@@ -1402,6 +1452,7 @@ function init() {
             }else if(state == 'react'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Library: React\r\n\r\n'
@@ -1413,6 +1464,7 @@ function init() {
             }else if(state == 'secondText'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = '------------ Experience ------------\r\n\r\n'
@@ -1427,6 +1479,7 @@ function init() {
             }else if(state == 'ls111'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Language: Python\r\n\r\n'
@@ -1438,6 +1491,7 @@ function init() {
             }else if(state == 'ls121'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Language: Java\r\n\r\n'
@@ -1450,6 +1504,7 @@ function init() {
             }else if(state == 'ls131'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Adobe package\r\n\r\n'
@@ -1461,6 +1516,7 @@ function init() {
             }else if(state == 'ls141'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: SAP\r\n\r\n'
@@ -1475,6 +1531,7 @@ function init() {
             }else if(state == 'ls151'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Blender\r\n\r\n'
@@ -1486,6 +1543,7 @@ function init() {
             }else if(state == 'null'){ //ls012
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls012 \r\n\r\n'
@@ -1496,6 +1554,7 @@ function init() {
             }else if(state == 'null'){ //ls022
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls022\r\n\r\n'
@@ -1506,6 +1565,7 @@ function init() {
             }else if(state == 'null'){ //ls032
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls032\r\n\r\n'
@@ -1516,6 +1576,7 @@ function init() {
             }else if(state == 'null'){ //ls042
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls042\r\n\r\n'
@@ -1526,6 +1587,7 @@ function init() {
             }else if(state == 'null'){ //ls052
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls052\r\n\r\n'
@@ -1536,6 +1598,7 @@ function init() {
             }else if(state == 'null'){ //ls112
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls112\r\n\r\n'
@@ -1546,6 +1609,7 @@ function init() {
             }else if(state == 'null'){ //ls122
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls122\r\n\r\n'
@@ -1556,6 +1620,7 @@ function init() {
             }else if(state == 'null'){ //ls132
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls132\r\n\r\n'
@@ -1566,6 +1631,7 @@ function init() {
             }else if(state == 'null'){ //ls142
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls142\r\n\r\n'
@@ -1576,6 +1642,7 @@ function init() {
             }else if(state == 'null'){ //ls152
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: ls152\r\n\r\n'
@@ -1586,6 +1653,7 @@ function init() {
             }else if(state == 'pj011'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/loja.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Project: HouseTec Store\r\n\r\n'
@@ -1600,6 +1668,7 @@ function init() {
             }else if(state == 'pj021'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/tabelafii.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Project: Tabela de Investimentos\r\n\r\n'
@@ -1614,6 +1683,7 @@ function init() {
             }else if(state == 'pj031'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/calculadora.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Project: Calculadora Web\r\n\r\n'
@@ -1627,6 +1697,7 @@ function init() {
             }else if(state == 'null'){ //pj041
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj041\r\n\r\n'
@@ -1637,6 +1708,7 @@ function init() {
             }else if(state == 'null'){ //pj051
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj051\r\n\r\n'
@@ -1647,6 +1719,7 @@ function init() {
             }else if(state == 'null'){ //pj111
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj111\r\n\r\n'
@@ -1657,6 +1730,7 @@ function init() {
             }else if(state == 'null'){ //pj121
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj121\r\n\r\n'
@@ -1667,6 +1741,7 @@ function init() {
             }else if(state == 'null'){ //pj131
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj131\r\n\r\n'
@@ -1677,6 +1752,7 @@ function init() {
             }else if(state == 'null'){ //pj141
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj141\r\n\r\n'
@@ -1687,6 +1763,7 @@ function init() {
             }else if(state == 'null'){ //pj151
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj151\r\n\r\n'
@@ -1697,6 +1774,7 @@ function init() {
             }else if(state == 'null'){ //pj012
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj012\r\n\r\n'
@@ -1707,6 +1785,7 @@ function init() {
             }else if(state == 'null'){ //pj022
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj022\r\n\r\n'
@@ -1717,6 +1796,7 @@ function init() {
             }else if(state == 'null'){ //pj032
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj032\r\n\r\n'
@@ -1727,6 +1807,7 @@ function init() {
             }else if(state == 'null'){ //pj042
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj042\r\n\r\n'
@@ -1737,6 +1818,7 @@ function init() {
             }else if(state == 'null'){ //pj052
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj052\r\n\r\n'
@@ -1747,6 +1829,7 @@ function init() {
             }else if(state == 'null'){ //pj112
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj112\r\n\r\n'
@@ -1757,6 +1840,7 @@ function init() {
             }else if(state == 'null'){ //pj122
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj122\r\n\r\n'
@@ -1767,6 +1851,7 @@ function init() {
             }else if(state == 'null'){ //pj132
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/'
                 screenElement.textContent = 'Projeto: pj132\r\n\r\n'
                 screenElement.textContent += 'Nível: TEMPLATE \r\n\r\n'
@@ -1776,6 +1861,7 @@ function init() {
             }else if(state == 'null'){ //pj142
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj142\r\n\r\n'
@@ -1786,6 +1872,7 @@ function init() {
             }else if(state == 'null'){ //pj152
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
                 screenElement.textContent = 'Projeto: pj152\r\n\r\n'
@@ -1796,6 +1883,7 @@ function init() {
             }else if (state == 'redo') {
                 textFrame.visible = false;
                 arrowDown.visible = false;
+                imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Name: Gabriel Dias\r\n\r\n'
