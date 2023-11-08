@@ -1,25 +1,35 @@
 import './style.css'
-
+//importações
+    //importações basicas
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
+    //pós processamento
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+    //efeitos
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass';
 
+    //serrilhamento
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader';
 
+    //carregar html em objeto 3D
 import { CSS3DRenderer, CSS3DObject} from 'three/examples/jsm/renderers/CSS3DRenderer'
 
+//declarações
 let container;
+    //camera
 let camera, scene, renderer, controls;
+    //efeitos
 let composer, effectFXAA, outlinePass, outlinePassBlack;
+    //modelo e animação
 let mixer, openPokedex, pressButton;
 let cima,baixo,esq,dir,sl1,sl2,b12,b13,b22,b23,b32,b33,b42,b43,b52,b53,bbe,bbd,vm1,vm2,se1,se2;
 let pokedex;
+    //interação com a cena
 let ab, on = false;
 let arrowDown;
 let state, link = '';
@@ -34,9 +44,9 @@ let lang = 'br';
 let theme;
 let sound = true;
 
-
 let selectedObjects, selectedObjectsBlack = [];
 
+//features
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const clock = new THREE.Clock();
@@ -46,6 +56,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 const loadingManager = new THREE.LoadingManager();
 const loaderG = new GLTFLoader(loadingManager);
 
+//tela de carregamento
 loadingManager.onStart = function(url, item, total){
 
 }
@@ -63,10 +74,11 @@ init();
 animate();
 
 function init() {
-    loadingManager.onLoad = function(){
+    loadingManager.onLoad = function(){// ao terminar exibe o botão play
         document.getElementById("buttonPlay").style.visibility = "visible";
     }
 
+    //cena basica three js
     container = document.createElement( 'div' );
     document.body.appendChild( container );
 
@@ -85,14 +97,14 @@ function init() {
     scene = new THREE.Scene();
 
     //scene.add(grid)
-
+    //camera
     camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 100 );
     camera.position.set( 0, 0, 8 );
 
     controls = new OrbitControls( camera, renderer.domElement );
     controls.enablePan = false;
     camera.add(listener)
-
+    //zoom maximo e minimo da camera
     controls.maxDistance = 9;
     controls.minDistance = 6;
     controls.maxPolarAngle = Math.PI/1.5;
@@ -128,6 +140,7 @@ function init() {
     const offSound = new THREE.Audio(listener);
     theme = new THREE.Audio(listener);
     const audioLoader = new THREE.AudioLoader();
+    //carregamento das musicas e efeitos sonoros
     audioLoader.load( '/src/sounds/clickSound.ogg', function( buffer ) {
 	    clickSound.setBuffer( buffer );
 	    clickSound.setLoop( false );
@@ -149,7 +162,7 @@ function init() {
 	    theme.setVolume( 0.05 );
     })
     
-
+    //carregamento das imagens
     //IMG - Ls(0) Pg(1)    
     const html = new THREE.TextureLoader().load('/src/img/icons/html.png'                    );
     const css = new THREE.TextureLoader().load('/src/img/icons/css.png'                      );
@@ -205,6 +218,8 @@ function init() {
 
     const contactButton = new THREE.TextureLoader().load('/src/img/icons/zap.png'           );
     const linkedinButton = new THREE.TextureLoader().load('/src/img/icons/linkedin.png'     );
+
+    const blockButton = new THREE.TextureLoader().load('/src/img/icons/block.png'     );
 
     const planeGeometry = new THREE.PlaneGeometry();
     //Stickers Linha 1
@@ -271,11 +286,11 @@ function init() {
     mesh13.scale.set(0.38,0.38,1);
     mesh13.rotation.y = -0.085;
 
-    const Material14 = new THREE.MeshBasicMaterial({ map: ls141, transparent: true });
+    const Material14 = new THREE.MeshBasicMaterial({ map: blockButton, transparent: true });
     mesh14 = new THREE.Mesh(planeGeometry, Material14);
     scene.add(mesh14);
     mesh14.position.set(2.095,-0.605,0.150);
-    mesh14.scale.set(0.38,0.38,1);
+    mesh14.scale.set(0.3,0.3,1);
     mesh14.rotation.y = -0.085;
 
     const Material15 = new THREE.MeshBasicMaterial({ map: ls151, transparent: true });
@@ -325,6 +340,7 @@ function init() {
     contactMesh.name = 'contactMesh';
     linkedinMesh.name = 'linkedinMesh';
 
+    //função que atualiza a imagem das malhas
     function callButtons(info,page) {
         if (info == 'ls') {
             if (page == 1) {
@@ -342,28 +358,28 @@ function init() {
                 mesh11.material.map = ls111;
                 mesh12.material.map = ls121;
                 mesh13.material.map = ls131;
-                mesh14.material.map = ls141;
+                mesh14.material.map = blockButton;
                 mesh15.material.map = ls151;
                 mesh12.scale.set(0.38,0.38,1);
                 mesh13.scale.set(0.38,0.38,1);
-                mesh14.scale.set(0.38,0.38,1);
+                mesh14.scale.set(0.3,0.3,1);
             }else if(page == 2){
-                mesh01.material.map = ls012;
-                mesh02.material.map = ls022;
-                mesh03.material.map = ls032;
-                mesh04.material.map = ls042;
-                mesh05.material.map = ls052;
+                mesh01.material.map = blockButton;
+                mesh02.material.map = blockButton;
+                mesh03.material.map = blockButton;
+                mesh04.material.map = blockButton;
+                mesh05.material.map = blockButton;
                 mesh01.scale.set(0.3,0.3,1);
                 mesh02.scale.set(0.3,0.3,1);
                 mesh03.scale.set(0.3,0.3,1);
                 mesh04.scale.set(0.3,0.3,1);
                 mesh05.scale.set(0.3,0.3,1);
 
-                mesh11.material.map = ls112;
-                mesh12.material.map = ls122;
-                mesh13.material.map = ls132;
-                mesh14.material.map = ls142;
-                mesh15.material.map = ls152;
+                mesh11.material.map = blockButton;
+                mesh12.material.map = blockButton;
+                mesh13.material.map = blockButton;
+                mesh14.material.map = blockButton;
+                mesh15.material.map = blockButton;
                 mesh12.scale.set(0.3,0.3,1);
                 mesh13.scale.set(0.3,0.3,1);
                 mesh14.scale.set(0.3,0.3,1);
@@ -373,39 +389,39 @@ function init() {
                 mesh01.material.map = pj011;
                 mesh02.material.map = pj021;
                 mesh03.material.map = pj031;
-                mesh04.material.map = pj041;
-                mesh05.material.map = pj051;
+                mesh04.material.map = blockButton;
+                mesh05.material.map = blockButton;
                 mesh01.scale.set(0.3,0.3,1);
                 mesh02.scale.set(0.3,0.3,1);
                 mesh03.scale.set(0.3,0.3,1);
                 mesh04.scale.set(0.3,0.3,1);
                 mesh05.scale.set(0.3,0.3,1);
 
-                mesh11.material.map = pj111;
-                mesh12.material.map = pj121;
-                mesh13.material.map = pj131;
-                mesh14.material.map = pj141;
-                mesh15.material.map = pj151;
+                mesh11.material.map = blockButton;
+                mesh12.material.map = blockButton;
+                mesh13.material.map = blockButton;
+                mesh14.material.map = blockButton;
+                mesh15.material.map = blockButton;
                 mesh12.scale.set(0.3,0.3,1);
                 mesh13.scale.set(0.3,0.3,1);
                 mesh14.scale.set(0.3,0.3,1);
             }else if(page == 2){
-                mesh01.material.map = pj012;
-                mesh02.material.map = pj022;
-                mesh03.material.map = pj032;
-                mesh04.material.map = pj042;
-                mesh05.material.map = pj052;
+                mesh01.material.map = blockButton;
+                mesh02.material.map = blockButton;
+                mesh03.material.map = blockButton;
+                mesh04.material.map = blockButton;
+                mesh05.material.map = blockButton;
                 mesh01.scale.set(0.3,0.3,1);
                 mesh02.scale.set(0.3,0.3,1);
                 mesh03.scale.set(0.3,0.3,1);
                 mesh04.scale.set(0.3,0.3,1);
                 mesh05.scale.set(0.3,0.3,1);
 
-                mesh11.material.map = pj112;
-                mesh12.material.map = pj122;
-                mesh13.material.map = pj132;
-                mesh14.material.map = pj142;
-                mesh15.material.map = pj152;
+                mesh11.material.map = blockButton;
+                mesh12.material.map = blockButton;
+                mesh13.material.map = blockButton;
+                mesh14.material.map = blockButton;
+                mesh15.material.map = blockButton;
                 mesh12.scale.set(0.3,0.3,1);
                 mesh13.scale.set(0.3,0.3,1);
                 mesh14.scale.set(0.3,0.3,1);
@@ -413,6 +429,7 @@ function init() {
         }
     }callButtons();
 
+    //ocultar e exibir as malhas
     function iconsHideShow(on) {
         if (on == false) {
             mesh01.visible = false;
@@ -453,6 +470,7 @@ function init() {
         }
     }iconsHideShow(on);
 
+    //Função para mudar o idioma
     document.getElementById("language").onclick = function() {language()};
     function language(){
         if (lang != 'br') {
@@ -479,6 +497,7 @@ function init() {
         }
     }
 
+    //Tutorial - Inicio
     document.getElementById("tutorial").onclick = function() {openTutorial()};
     function openTutorial(){
         document.getElementById("tutorialDiv").style.visibility = "visible";
@@ -583,7 +602,9 @@ function init() {
             '8 - Contact links.'
         }
     } 
-    
+    //Tutorial - fim
+
+    //Liga e desliga a musica ambiente
     document.getElementById("sound").onclick = function() {soundMute()};
     function soundMute(){
         if (sound == true) {
@@ -598,6 +619,7 @@ function init() {
         
     }
 
+    //Função do botão play - organiza a scena e exibe o modelo
     document.getElementById("buttonPlay").onclick = function() {buttonPlay()};
     function buttonPlay(){
         document.getElementById("mainScreen").style.visibility = "hidden";
@@ -609,8 +631,7 @@ function init() {
         pokedex.scene.visible = true;
     }
 
-    //Modelo
-    
+    //Carregamento do Modelo
     const loaderT = new THREE.TextureLoader();
     loaderG.load('/src/models/Pokedex3DModel.gltf', function (gltf) {
         pokedex = gltf
@@ -618,7 +639,7 @@ function init() {
         pokedex.scene.rotation.x = Math.PI / 2;
         pokedex.scene.scale.x = 0.2;
         pokedex.scene.scale.y = 0.2;
-        pokedex.scene.scale.z = 0.2; //pokedex.scene.getObjectByName('Joystick_Cima001').scale.x = 2;
+        pokedex.scene.scale.z = 0.2;
         //Adiciona modelo na cena
         scene.add(pokedex.scene);
         pokedex.scene.visible = false;
@@ -626,21 +647,22 @@ function init() {
         tela = pokedex.scene.getObjectByName('Tela003');
         telaM = tela.material
 
-        //Animação do modelo
+        //Animação de abertura
         mixer = new THREE.AnimationMixer(pokedex.scene);
         mixer.addEventListener('finished', animationFinished);
         const clips = pokedex.animations;
         
+        //chama função para carregar todas as animações do modelo
         loadAnimations(clips);
 
+        //função outline effect
         selectToOutline();
     })
 
+    //criação de novas cores para tela
     const colorM = new THREE.Color('#1E90FF')
     const colorE = new THREE.Color('#1E90FF')
     material1 = new THREE.MeshLambertMaterial({color: colorM, emissive: colorE});
-    
-    //#458b00 #006400
 
     function loadAnimations(clips){
         //Abre Pokedex
@@ -765,7 +787,7 @@ function init() {
         se2.loop = THREE.LoopOnce;
     }
     
-    //Background
+    //Imagem do Background
     var backgroundTexture = loaderT.load("/src/img/plainsbackground.jpg");
     scene.background = backgroundTexture
 
@@ -807,6 +829,7 @@ function init() {
     outlinePassBlack.visibleEdgeColor.set(0xffffff);
     outlinePassBlack.hiddenEdgeColor.set(0xffffff);
 
+    //eventos para o ponteiro do mouse
     renderer.domElement.style.touchAction = 'none';
     renderer.domElement.addEventListener( 'pointermove', onPointerMove );
     renderer.domElement.addEventListener('click', onClick, false);
@@ -843,6 +866,7 @@ function init() {
     scene.add(arrowDown)
     arrowDown.visible = false;
 
+    //função async para exibir o texto na tela
     async function textFrameContinue(state){
         if (lang == 'br') {
             if (state == 'firstText') {
@@ -863,10 +887,10 @@ function init() {
                 imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'Nome: Gabriel Dias\r\n\r\n'
-                screenElement.textContent += 'Idade: 20 Anos\r\n\r\n'
-                screenElement.textContent += 'Traços: Criativo, Proativo, Sociavel\r\n\r\n'
-                screenElement.textContent += 'Sobre: Gosta muito de conhecer novas\r\n tecnologias,soluciona facilmente\r\n problemas, gosta de bolinho de chuva,\r\n a procura de um estagio.'
+                screenElement.textContent = 'Nome: Seu nome aqui\r\n\r\n'
+                screenElement.textContent += 'Idade: ?? Anos\r\n\r\n'
+                screenElement.textContent += 'Traços: Suas caracteristicas aqui.\r\n\r\n'
+                screenElement.textContent += 'Sobre: Digite seu texto aqui.'
             }else if(state == 'html'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
@@ -918,7 +942,7 @@ function init() {
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Node.js\r\n\r\n'
-                screenElement.textContent += 'Nível: Estudando \r\n\r\n'
+                screenElement.textContent += 'Nível: \r\n\r\n'
                 screenElement.textContent += 'Conhecimentos: Instalaçao,NPM,Biblio-\r\n'
                 screenElement.textContent += ' tecas,API.\r\n'
                 await delay(50);
@@ -930,7 +954,7 @@ function init() {
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Biblioteca: React\r\n\r\n'
-                screenElement.textContent += 'Nível: Estudando \r\n\r\n'
+                screenElement.textContent += 'Nível: \r\n\r\n'
                 screenElement.textContent += 'Conhecimentos: API,Componentes,Contex-\r\n'
                 screenElement.textContent += ' to,Hooks,Rotas.\r\n'
                 await delay(50);
@@ -942,12 +966,11 @@ function init() {
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = '------------ Experiencia ------------\r\n\r\n'
-                screenElement.textContent += 'Cinemark Brasil - Freelance\r\n\r\n'
-                screenElement.textContent += ' Funçao: PAC\r\n'
-                screenElement.textContent += ' Abril de 2023 / o momento - 7 meses\r\n'
-                screenElement.textContent += ' Sao Paulo, Brasil\r\n\r\n'
-                screenElement.textContent += 'Competências: Vendas,Persuasao,Inglês\r\n'
-                screenElement.textContent += ' Comunicaçao,Trabalho em equipe.\r\n'
+                screenElement.textContent += 'Nome da empresa - Tipo do contrato\r\n\r\n'
+                screenElement.textContent += ' Funçao: \r\n'
+                screenElement.textContent += ' Inicio / Termino\r\n'
+                screenElement.textContent += ' Local, Local\r\n\r\n'
+                screenElement.textContent += 'Competências: \r\n'
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'ls111'){
@@ -982,12 +1005,12 @@ function init() {
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = 'Software: Pacote Adobe\r\n\r\n'
-                screenElement.textContent += 'Nível: Intermediário \r\n\r\n'
+                screenElement.textContent += 'Nível: \r\n\r\n'
                 screenElement.textContent += 'Conhecimentos: Photoshop,Illustrator,\r\n'
                 screenElement.textContent += ' Premiere Pro,After Effects,Substance.\r\n'
                 await delay(50);
                 textFrame.visible = true;
-            }else if(state == 'ls141'){
+            }else if(state == 'null'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
                 imgElement.src = ''
@@ -1128,15 +1151,13 @@ function init() {
                 textFrame.visible = false;
                 arrowDown.visible = false;
                 imgElement.src = ''
-                imgElement.src = '/src/img/screen/loja.jpg'
+                imgElement.src = '/src/img/screen/w.i.p.jpg'
                 screenFrame.scale.set(1.62,1.22,1)
-                screenElement.textContent = 'Projeto: Loja HouseTec\r\n\r\n'
-                screenElement.textContent += 'Tecnologias: HTML,CSS,JavaScript,JSON \r\n\r\n'
-                screenElement.textContent += 'Sobre: Portfólio interativo simulando \r\n'
-                screenElement.textContent += '      uma loja na web,com catálogo, \r\n'
-                screenElement.textContent += '      biblioteca, pagina do produto, \r\n'
-                screenElement.textContent += '      e no futuro com funçoes de car- \r\n'
-                screenElement.textContent += '      rinho e checkout. \r\n'
+                screenElement.textContent = 'Projeto: Formulario B.I.G\r\n\r\n'
+                screenElement.textContent += 'Tecnologias: HTML,CSS,JavaScript \r\n\r\n'
+                screenElement.textContent += 'Sobre: Formulario online e personali- \r\n'
+                screenElement.textContent += '     zado, de reserva para a empresa \r\n'
+                screenElement.textContent += '     brazil independent game festival. \r\n'
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'pj021'){
@@ -1359,10 +1380,10 @@ function init() {
                 imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'Nome: Gabriel Dias\r\n\r\n'
-                screenElement.textContent += 'Idade: 20 Anos\r\n\r\n'
-                screenElement.textContent += 'Traços: Criativo, Proativo, Sociavel\r\n\r\n'
-                screenElement.textContent += 'Sobre: Gosta muito de conhecer novas\r\n tecnologias,soluciona facilmente\r\n problemas, gosta de bolinho de chuva,\r\n a procura de um estagio.'
+                screenElement.textContent = 'Nome: Seu nome aqui\r\n\r\n'
+                screenElement.textContent += 'Idade: ?? Anos\r\n\r\n'
+                screenElement.textContent += 'Traços: Suas caracteristicas aqui.\r\n\r\n'
+                screenElement.textContent += 'Sobre: Digite seu texto aqui.'
                 await delay(50);
                 textFrame.visible = true;
                 await delay(5000);
@@ -1387,12 +1408,10 @@ function init() {
                 imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'Name: Gabriel Dias\r\n\r\n'
-                screenElement.textContent += 'Age: 20 years\r\n\r\n'
-                screenElement.textContent += 'Traits: Creative, Proactive, Sociable\r\n\r\n'
-                screenElement.textContent += 'About: Like explore new technologies,\r\n'
-                screenElement.textContent += ' Easily solve problems, Likes funnel\r\n'
-                screenElement.textContent += '  cake, Looking for an internship.'
+                screenElement.textContent = 'Name: Your name here.\r\n\r\n'
+                screenElement.textContent += 'Age: ?? years\r\n\r\n'
+                screenElement.textContent += 'Traits: its features here.\r\n\r\n'
+                screenElement.textContent += 'About: Enter your text here'
             }else if(state == 'html'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
@@ -1468,12 +1487,11 @@ function init() {
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
                 screenElement.textContent = '------------ Experience ------------\r\n\r\n'
-                screenElement.textContent += 'Cinemark Brazil - Freelance\r\n\r\n'
-                screenElement.textContent += ' Role: PAC\r\n'
-                screenElement.textContent += ' April 2023 / The moment - 7 months\r\n'
-                screenElement.textContent += ' Sao Paulo, Brazil\r\n\r\n'
-                screenElement.textContent += 'Skills: Sales,Persuasion,English\r\n'
-                screenElement.textContent += ' Communication, Teamwork.\r\n'
+                screenElement.textContent += 'Company Name - type of contract\r\n\r\n'
+                screenElement.textContent += ' Role: \r\n'
+                screenElement.textContent += ' start / end\r\n'
+                screenElement.textContent += ' local, local\r\n\r\n'
+                screenElement.textContent += 'Skills: '
                 await delay(50);
                 textFrame.visible = true;
             }else if(state == 'ls111'){
@@ -1513,7 +1531,7 @@ function init() {
                 screenElement.textContent += ' Premiere Pro,After Effects,Substance.\r\n'
                 await delay(50);
                 textFrame.visible = true;
-            }else if(state == 'ls141'){
+            }else if(state == 'null'){
                 textFrame.visible = false;
                 arrowDown.visible = false;
                 imgElement.src = ''
@@ -1886,12 +1904,10 @@ function init() {
                 imgElement.src = ''
                 imgElement.src = '/src/img/euimgzap.jpg'
                 screenFrame.scale.set(1,1,1)
-                screenElement.textContent = 'Name: Gabriel Dias\r\n\r\n'
-                screenElement.textContent += 'Age: 20 years\r\n\r\n'
-                screenElement.textContent += 'Traits: Creative, Proactive, Sociable\r\n\r\n'
-                screenElement.textContent += 'About: Like explore new technologies,\r\n'
-                screenElement.textContent += ' Easily solve problems, Likes funnel\r\n'
-                screenElement.textContent += '  cake, Looking for an internship.'
+                screenElement.textContent = 'Name: Your name here.\r\n\r\n'
+                screenElement.textContent += 'Age: ?? years\r\n\r\n'
+                screenElement.textContent += 'Traits: its features here\r\n\r\n'
+                screenElement.textContent += 'About: Enter your text here'
                 await delay(50);
                 textFrame.visible = true;
                 await delay(5000);
@@ -1900,6 +1916,7 @@ function init() {
         }
     }
 
+    //Retorno do evento onpoint
     function onPointerMove( event ) {
 
         if ( event.isPrimary === false ) return;
@@ -1967,7 +1984,7 @@ function init() {
         }
 
     }
-
+    //retorno do evento click
     function onClick(event) {
         event.preventDefault();
       
@@ -2117,7 +2134,7 @@ function init() {
                         }else if(info == 'pj'){
                             if (state != 'pj011'){
                                 state = 'pj011'
-                                link = "https://lojahousetec.netlify.app/index.html"
+                                link = "https://grand-concha-bf4b56.netlify.app/"
                                 textFrameContinue(state);
                             }
                         }
@@ -2456,12 +2473,12 @@ function init() {
                     pressSound()
                     vm1.reset();
                     vm1.play();
-                    window.open("https://wa.me/5511951078177");
+                    window.open("https://www.youtube.com/results?search_query=como+criar+um+link+do+whatsApp");
                 }else if(x == 'VisorMenor2001' || x == 'linkedinMesh'){
                     pressSound()
                     vm2.reset();
                     vm2.play();
-                    window.open("https://www.linkedin.com/in/gabrieldiasdavid/");
+                    window.open("https://www.linkedin.com/school/universidadecruzeirodosul/");
                 }else if(x == 'SelectEsquerdo001'){
                     pressSound()
                     se1.reset();
